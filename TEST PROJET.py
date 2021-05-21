@@ -1,15 +1,15 @@
-melodie = [['4','n'],['3','t'],['8','r'],['2','w']]
+melodie = [['4','n'],['3','w'],['8','COMMA'],['2','g']]
 
 
 def partition(melodie):
-    part = []
-    nv_part = []
-    for i in range(len(melodie)):
-        part.append(melodie[i][1])
 
-    if "n" in part:
-        nv_part = part.replace("n","A4")
+    note ={"n":"A4", "j":"A_4", "COMMA":"B4", "w":"C4", "s":"C_4", "x":"D4", "d":"D_4", "c":"E_4", "v":"F4", "g":"F_4", "b":"G4", "h":"G_4"}
+    
+    part = []
+    
+    for e in melodie:
+        part.append(note[e[1]])
         
-    return nv_part
+    return part
 
         
