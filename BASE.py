@@ -1,4 +1,3 @@
-
 import pygame , sys
 import time
 import pyautogui
@@ -7,9 +6,8 @@ from pynput.keyboard import Key, Controller
 #Gestion Interface Pygame
 
 pygame.init()
-screen = pygame.display.set_mode((500, 500))
+screen = pygame.display.set_mode((1000, 1000))
 
-COULEUR_BLANCHE = pygame.Color(255, 255, 255)
 
 ECRAN = pygame.display.set_mode((400,400))
 ECRAN.fill(COULEUR_BLANCHE)
@@ -59,42 +57,12 @@ def main():
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     
-                    
-                    
-                    """for i in MELODIE:
-                        
-                        print(MELODIE)
-                        note = i[1]
-                        #print(note)
-                        temps = i[0]
-                        #print(temps)
-
-                        keyboard.press(note)
-                        
-                    
-                        keyboard.type(".")
-                        pyautogui.press("p")
-                        pyautogui.press("l")
-                        pyautogui.press("a")
-                        pyautogui.press("y")
-                        
-                        keyboard.type("(")
-                        keyboard.type(")")
-                        keyboard.type("\r")
-                        
-
-
-                        
-                        time.sleep(temps)
-                        pygame.mixer.fadeout(1000)"""
                          
                     print(MELODIE)
                     return MELODIE
                     
                     
-                   
-    
-                
+
                 if event.key == pygame.K_w:
                     w.play()
                 if event.key == pygame.K_s:
@@ -172,7 +140,6 @@ def rejoue(MELODIE):
         if note == ',':
             COMMA.play()
 
-
         if note == 'v':
             v.play()
 
@@ -181,6 +148,8 @@ def rejoue(MELODIE):
 
         if note == 'g':
             g.play()
+
+
         
         time.sleep(temps)
         pygame.mixer.fadeout(1000)
