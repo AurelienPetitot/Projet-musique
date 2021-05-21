@@ -5,12 +5,16 @@ from pynput.keyboard import Key, Controller
 
 #Gestion Interface Pygame
 
-pygame.init()
-screen = pygame.display.set_mode((1000, 1000))
+#Ouverture de la fenêtre Pygame
+fenetre = pygame.display.set_mode((1920, 1080))
 
+#Chargement et collage du fond
+fond = pygame.image.load("background.jpg").convert()
+fenetre.blit(fond, (0,0))
 
-ECRAN = pygame.display.set_mode((400,400))
-ECRAN.fill(COULEUR_BLANCHE)
+#Rafraîchissement de l'écran
+pygame.display.flip()
+
 pygame.display.set_caption("MELODIE MAKER")
 
 done = False
@@ -56,13 +60,9 @@ def main():
             
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    
-                         
-                    print(MELODIE)
                     return MELODIE
                     
-                    
-
+                
                 if event.key == pygame.K_w:
                     w.play()
                 if event.key == pygame.K_s:
@@ -90,18 +90,9 @@ def main():
 
                 bb = time.time()
                 MELODIE.append([round(bb-a,2), pygame.key.name(event.key)])
-                
-                
-                
-                
-
+            
             elif event.type == pygame.KEYUP:
                 pygame.mixer.fadeout(1000)
-
-            
-            
-
-
 
 def rejoue(MELODIE):
     
@@ -150,18 +141,23 @@ def rejoue(MELODIE):
             g.play()
 
 
-        
         time.sleep(temps)
         pygame.mixer.fadeout(1000)
 
     return MELODIE
     
 
-
 melo=main()
 time.sleep(2)
 rejoue(melo)
                     
+
+#interface
+
+
+
+#Rafraîchissement de l'écran
+pygame.display.flip()
 
 
 
